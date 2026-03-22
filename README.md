@@ -1,139 +1,139 @@
-# Игра "Жизнь" (Conway's Game of Life)
+# Conway's Game of Life
 
-## Описание
-Игра "Жизнь" — это клеточный автомат, придуманный математиком Джоном Конвеем в 1970 году. Это модель, в которой каждая клетка на двумерной сетке может находиться в одном из двух состояний:  
-- **"Живая"** (белая)  
-- **"Мертвая"** (черная)  
+## Description
+Conway's Game of Life is a cellular automaton devised by mathematician John Conway in 1970. It is a model where each cell on a two-dimensional grid can be in one of two states:  
+- **"Alive"** (white)  
+- **"Dead"** (black)  
 
-Состояние клеток меняется по определенным правилам, что создает интересные динамические паттерны.
+The state of the cells changes according to specific rules, creating interesting dynamic patterns.
 
-### Правила симуляции:
-- **Выживание**: Живая клетка остается живой, если у нее 2 или 3 живых соседа.  
-- **Смерть**:  
-  - От одиночества (меньше 2 соседей)  
-  - От перенаселения (больше 3 соседей)  
-- **Рождение**: Мертвая клетка оживает, если у нее ровно 3 живых соседа.  
+### Simulation Rules:
+- **Survival**: A live cell remains alive if it has 2 or 3 live neighbors.  
+- **Death**:  
+  - From loneliness (fewer than 2 neighbors)  
+  - From overpopulation (more than 3 neighbors)  
+- **Birth**: A dead cell becomes alive if it has exactly 3 live neighbors.  
 
-### Актуальность
-Данное ПО позволяет автоматизировать и ускорить создание симуляций при разных конфигурационных данных, а также удобно задавать начальные настройки.
-
----
-
-## Спецификация
-
-### Функциональные требования
-#### 1. Функции:
-- Принятие на обработку двух целочисленных значений (ширина и длина поля).  
-- Создание окна соотвsетствующего размера.  
-- Задание состояния каждой ячейки (чётное нажатие — мертвая, нечётное — живая).  
-- Определение последующего состояния клетки.  
-- Изменения поля путём изменения состояния клеток.  
-- Остановка/возобновление симуляции по нажатию клавиши.  
-- Выход из программы по нажатию клавиши.  
-- Показ правил игры по нажатию клавиши.  
-- Подсчёт поколений.  
-- Автоматическое завершение при вымирании всех клеток.  
-- Выбор языка интерфейса (русский/английский).  
-
-#### 2. Входные данные:
-- **Ширина поля**: `int` (1–25).  
-- **Длина поля**: `int` (1–25).  
-- **Состояние ячеек**: интерактивное редактирование.  
-- **Управление симуляцией**:  
-  - `Пробел` — пауза/продолжение.  
-  - `Esc` — выход.  
-  - `Q` — показать правила.  
-
-#### 3. Выходные данные:
-- Динамически изменяющееся игровое поле.  
-- Сообщение "Симуляция окончена" при завершении.  
-- Текущий номер поколения.  
-
-#### 4. Пользовательский интерфейс:
-- Начальное окно с полями ввода ширины и длины.  
-- Подсказки при некорректном вводе.  
-- Игровое поле с инструкцией по управлению.  
-- Сообщение о завершении симуляции.  
-
-#### 5. Сценарии использования:
-Пользователь задает размеры поля и стартовую конфигурацию, запускает симуляцию и наблюдает за эволюцией.  
-
-#### 6. Ограничения:
-- Ввод только целых чисел от 1 до 25.  
-
-#### 7. Зависимости:
-- Запуск симуляции возможен только после задания размеров поля.  
+### Relevance
+This software automates and accelerates the creation of simulations with various configuration data and provides a convenient way to set initial parameters.
 
 ---
 
-### Нефункциональные требования
-1. **Производительность**: Время отклика ≤ 2 сек.  
-2. **Надёжность**: Доступность ≥ 99.9%.  
-3. **Безопасность**: Проверка вводимых данных.  
-4. **Удобство**: 99.9% пользователей выполняют задачу с первой попытки.  
-5. **Масштабируемость**: Поддержка усложнённых конфигураций.  
-6. **Совместимость**: Работа на ПК и ноутбуках под разными ОС.  
-7. **Доступность**: Круглосуточная работа.  
-8. **Стандарты**: Соответствие ISO 9241 (интерфейс).  
+## Specification
+
+### Functional Requirements
+#### 1. Functions:
+- Processing two integer values (field width and length).  
+- Creating a window of the corresponding size.  
+- Setting the state of each cell (even-numbered click — dead, odd-numbered click — alive).  
+- Determining the subsequent state of the cell.  
+- Updating the field by changing cell states.  
+- Pausing/resuming the simulation via keypress.  
+- Exiting the program via keypress.  
+- Displaying game rules via keypress.  
+- Generation counter.  
+- Automatic termination when all cells become extinct.  
+- Interface language selection (Russian/English).  
+
+#### 2. Input Data:
+- **Field Width**: `int` (1–25).  
+- **Field Length**: `int` (1–25).  
+- **Cell State**: interactive editing.  
+- **Simulation Control**:  
+  - `Space` — pause/resume.  
+  - `Esc` — exit.  
+  - `Q` — show rules.  
+
+#### 3. Output Data:  
+- A dynamically changing game board.  
+- "Simulation Over" message upon completion.  
+- Current generation number.  
+
+#### 4. User Interface:
+- Initial window with input fields for width and length.  
+- Prompts for incorrect input.  
+- Game board with control instructions.  
+- Simulation completion message.  
+
+#### 5. Use Cases:
+The user sets the field dimensions and starting configuration, starts the simulation, and observes the evolution.  
+
+#### 6. Constraints:
+- Input restricted to integers from 1 to 25.  
+
+#### 7. Dependencies:
+- The simulation can only be started after the field dimensions are defined.  
 
 ---
 
-## Особенности реализации
-- Графический интерфейс на **SFML**.  
-- Настраиваемый размер поля (**1x1 – 25x25**).  
-- **Тороидальная топология** (края поля соединены).  
-- Управление:  
-  - Запуск/остановка симуляции.  
-  - Ручное редактирование клеток.  
-- Визуализация текущего поколения.  
-- Автоматическое завершение при вымирании клеток.  
+### Non-functional Requirements
+1. **Performance**: Response time ≤ 2 sec.  
+2. **Reliability**: Availability ≥ 99.9%.  
+3. **Security**: Input data validation.  
+4. **Usability**: 99.9% of users complete the task on the first attempt.  
+5. **Scalability**: Support for complex configurations.  
+6. **Compatibility**: Works on PCs and laptops under various Operating Systems.  
+7. **Availability**: 24/7 operation.  
+8. **Standards**: Compliance with ISO 9241 (interface).  
 
 ---
 
-## Управление
-- **ЛКМ** — взаимодействие с кнопками и клетками.  
-- **Enter** — подтверждение ввода.  
-- **Пробел** — пауза/продолжение.  
-- **Esc** — выход.  
-- **Q** — правила игры.  
+## Implementation Features
+- Graphical interface based on **SFML**.  
+- Adjustable field size (**1x1 – 25x25**).  
+- **Toroidal topology** (the edges of the field are connected).  
+- Controls:  
+  - Start/stop simulation.  
+  - Manual cell editing.  
+- Current generation visualization.  
+- Automatic termination upon cell extinction.  
 
 ---
 
-## Ограничения
-- Размер поля: **1x1 – 25x25** (только целые числа).  
-- Состояние клетки: "живая" или "мертвая".  
+## Controls
+- **LMB** (Left Mouse Button) — interaction with buttons and cells.  
+- **Enter** — confirm input.  
+- **Space** — pause/resume.  
+- **Esc** — exit.  
+- **Q** — game rules.  
 
 ---
 
-## Установка
-1. Скачайте код с [GitHub]().  
-2. Установите **SFML 2.6.2**.  
-3. Подключите библиотеку в проекте.  
-4. Добавьте шрифт **Arial** в папку проекта.  
+## Constraints
+- Field size: **1x1 – 25x25** (integers only).  
+- Cell state: "alive" or "dead".  
 
 ---
 
-## Реализованные функции
-### Класс `GameOfLife`
-- `toggleCell(int x, int y)` — переключение состояния клетки.  
-- `countLiveCells()` — подсчёт живых клеток.  
-- `change()` — вычисление следующего поколения.  
-- `draw()` — отрисовка поля.  
-- `toggleSimulation()` — запуск/остановка симуляции.  
-
-### Главная функция (`main`)
-1. Загрузка шрифта.  
-2. Создание окна ввода.  
-3. Инициализация игрового поля.  
-4. Запуск основного цикла.  
+## Installation
+1. Download the code from [GitHub]().  
+2. Install **SFML 2.6.2**.  
+3. Link the library in your project.  
+4. Add the **Arial** font to the project folder.  
 
 ---
 
-## Методика тестирования
-1. **Модульное тестирование** — проверка функций и классов.  
-2. **Интеграционное тестирование** — взаимодействие модулей.  
-3. **Системное тестирование** — проверка всей системы.  
-4. **Приемочное тестирование** — тестирование от пользователя.  
-5. **Тестирование производительности** — время отклика.  
-6. **Тестирование безопасности** — проверка ввода.  
-7. **Автоматизированное тестирование** (Appium).  
+## Implemented Functions
+### `GameOfLife` Class
+- `toggleCell(int x, int y)` — switches cell state.  
+- `countLiveCells()` — counts the number of live cells.  
+- `change()` — calculates the next generation.  
+- `draw()` — renders the field.  
+- `toggleSimulation()` — starts/stops the simulation.  
+
+### Main Function (`main`)
+1. Font loading.  
+2. Input window creation.  
+3. Game field initialization.  
+4. Main loop execution.  
+
+---
+
+## Testing Methodology
+1. **Unit Testing** — verifying individual functions and classes.  
+2. **Integration Testing** — checking module interactions.  
+3. **System Testing** — verifying the entire system.  
+4. **Acceptance Testing** — user-based testing.  
+5. **Performance Testing** — response time evaluation.  
+6. **Security Testing** — input validation checks.  
+7. **Automated Testing** (Appium).
